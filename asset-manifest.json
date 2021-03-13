@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Skychart.js/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/Skychart.js/static/js/main.d16341b3.chunk.js",
-    "main.js.map": "/Skychart.js/static/js/main.d16341b3.chunk.js.map",
-    "runtime-main.js": "/Skychart.js/static/js/runtime-main.183f8895.js",
-    "runtime-main.js.map": "/Skychart.js/static/js/runtime-main.183f8895.js.map",
-    "static/js/2.d934b9ed.chunk.js": "/Skychart.js/static/js/2.d934b9ed.chunk.js",
-    "static/js/2.d934b9ed.chunk.js.map": "/Skychart.js/static/js/2.d934b9ed.chunk.js.map",
-    "static/js/3.d591d908.chunk.js": "/Skychart.js/static/js/3.d591d908.chunk.js",
-    "static/js/3.d591d908.chunk.js.map": "/Skychart.js/static/js/3.d591d908.chunk.js.map",
-    "index.html": "/Skychart.js/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/Skychart.js/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.d934b9ed.chunk.js.LICENSE.txt": "/Skychart.js/static/js/2.d934b9ed.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/Skychart.js/static/media/logo.6ce24c58.svg"
+    "main.css": "/skychart.js/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/skychart.js/static/js/main.d16341b3.chunk.js",
+    "main.js.map": "/skychart.js/static/js/main.d16341b3.chunk.js.map",
+    "runtime-main.js": "/skychart.js/static/js/runtime-main.6bbb6341.js",
+    "runtime-main.js.map": "/skychart.js/static/js/runtime-main.6bbb6341.js.map",
+    "static/js/2.d934b9ed.chunk.js": "/skychart.js/static/js/2.d934b9ed.chunk.js",
+    "static/js/2.d934b9ed.chunk.js.map": "/skychart.js/static/js/2.d934b9ed.chunk.js.map",
+    "static/js/3.d591d908.chunk.js": "/skychart.js/static/js/3.d591d908.chunk.js",
+    "static/js/3.d591d908.chunk.js.map": "/skychart.js/static/js/3.d591d908.chunk.js.map",
+    "index.html": "/skychart.js/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/skychart.js/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.d934b9ed.chunk.js.LICENSE.txt": "/skychart.js/static/js/2.d934b9ed.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/skychart.js/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.183f8895.js",
+    "static/js/runtime-main.6bbb6341.js",
     "static/js/2.d934b9ed.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
     "static/js/main.d16341b3.chunk.js"

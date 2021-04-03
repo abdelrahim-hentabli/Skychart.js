@@ -3,15 +3,36 @@ import github_logo from './GitHub-Mark-32px.png';
 import linkedin_logo from './LI-In-Bug.png';
 import portfolio_logo from './8707701631578981545-512.png'
 import './App.css';
+import {Coordinates} from './coordinates.js';
+import {Time} from './time.js';
+
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <a className="App-title">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Skychart
-        </p>
+        <a>
+          Skychart.js
+        </a>
+        </a>
+        <a className="App-datetime">
+          <a>
+            Local Time:
+          </a>
+          <a>
+            UTC Time:
+          </a>
+          <a>
+            Julian Day:
+          </a>
+          <a>
+            Sidereal Time:
+          </a>
+        </a>
       </header>
       <body className="App-body">
         Hello There
@@ -50,5 +71,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

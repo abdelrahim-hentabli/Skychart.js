@@ -33,12 +33,28 @@
   align-items: center;
 }
 
-.App-datetime {
+.App-datetimebox {
+  font-size: calc(2vmin - 1px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.App-datetimetypes {
   font-size: calc(2vmin - 1px);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
+}
+
+.App-datetimes {
+  font-size: calc(2vmin - 1px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
 }
 
 .App-body {

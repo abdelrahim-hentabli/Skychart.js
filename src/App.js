@@ -7,7 +7,7 @@ import {Coordinates} from './coordinates.js';
 import {Time} from './time.js';
 
 
-
+var currentTime = new Time();
 
 function App() {
   return (
@@ -19,7 +19,8 @@ function App() {
           Skychart.js
         </a>
         </a>
-        <a className="App-datetime">
+        <a className="App-datetimebox">
+        <a className="App-datetimetypes">
           <a>
             Local Time:
           </a>
@@ -32,6 +33,21 @@ function App() {
           <a>
             Sidereal Time:
           </a>
+        </a>
+        <a className="App-datetimes">
+          <a>
+            {currentTime.lTime()}
+          </a>
+          <a>
+            {currentTime.UTCTime()}
+          </a>
+          <a>
+            {currentTime.jd()}
+          </a>
+          <a>
+            {currentTime.sTime()}
+          </a>
+        </a>
         </a>
       </header>
       <body className="App-body">

@@ -5,11 +5,23 @@ import portfolio_logo from './8707701631578981545-512.png'
 import './App.css';
 import {Coordinates} from './coordinates.js';
 import {Time} from './time.js';
+import { useEffect } from 'react';
 
 
 var currentTime = new Time();
 
+function timedisplay(){
+  currentTime.now();
+  document.getElementById("localTime").innerHTML = currentTime.lTime();
+  document.getElementById("UTCTime").innerHTML = currentTime.UTCTime();
+  document.getElementById("julianDate").innerHTML = currentTime.jd();
+  document.getElementById("siderealTime").innerHTML = currentTime.sTime();
+}
+
 function App() {
+  useEffect(() => {
+    setInterval(timedisplay,1000)
+  });
   return (
     <div className="App">
       <header className="App-header">
@@ -35,16 +47,16 @@ function App() {
           </a>
         </a>
         <a className="App-datetimes">
-          <a>
+          <a id="localTime">
             {currentTime.lTime()}
           </a>
-          <a>
+          <a id="UTCTime">
             {currentTime.UTCTime()}
           </a>
-          <a>
+          <a id="julianDate">
             {currentTime.jd()}
           </a>
-          <a>
+          <a id="siderealTime">
             {currentTime.sTime()}
           </a>
         </a>

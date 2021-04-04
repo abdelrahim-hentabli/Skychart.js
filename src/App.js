@@ -63,7 +63,9 @@ function App() {
         </a>
       </header>
       <body className="App-body">
-        Hello There
+        <canvas className="App-skychart">
+          
+        </canvas>
       </body>
       <footer
           className="App-footer"

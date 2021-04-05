@@ -115,6 +115,7 @@ function useWindowSize() {
       c.height = size;
       c.innerWidth = size;
       c.innerHeight = size;
+
     }
     window.addEventListener("resize", handleResize);
 

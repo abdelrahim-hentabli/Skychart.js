@@ -1,29 +1,29 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import backgroundImg from "./skychart_background.png"
 
-const Skychart = props => {
+const background_image = new Image();
+background_image.src = backgroundImg;
 
-    const skychartRef = useRef(null)
+function drawerino(canvas){
+    const context = canvas.getContext('2d');
+    context.drawImage(background_image, 0, 0, context.canvas.width, context.canvas.height);
+    requestAnimationFrame(() =>drawerino(canvas));
+}
+
+const Skychart = props => {
+    const [, updateState] = useState();
+    const canvas = useRef(null)
     const draw = context =>{
-        context.fillStyle = '#000000';
-        context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-        var background_image = new Image();
-        background_image.src = backgroundImg;
         background_image.onload = function(){
-            context.drawImage(background_image, 0, 0, context.canvas.width, context.canvas.height);
+            drawerino(context);
         }
     }
-
     useEffect(() => {
-        const canvas= skychartRef.current;
-        const context = canvas.getContext('2d');
-        draw(context);
-    }, [])
-    return (
-    <div>
-        <canvas ref={skychartRef} {...props}/>
-    </div>)
+        const can= canvas.current;
+        draw(can);
+    }, []);
+    return (<canvas ref={canvas} {...props}/>)
 }
 
 export default Skychart

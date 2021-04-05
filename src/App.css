@@ -58,7 +58,7 @@
 }
 
 .App-body {
-  background-color: white;
+  background-color: lightgrey;
   min-height: 85vmin;
   height: calc(100vh - 15vmin);
   display: flex;
@@ -70,8 +70,6 @@
 
 .App-skychart {
   background-color: rebeccapurple;
-  height: 85vmin;
-  width: 85vmin;
 }
 
 .App-footer{

@@ -1,16 +1,18 @@
-import logo from './logo.svg';
+import logo from './logo.svg'
 import github_logo from './GitHub-Mark-32px.png';
 import linkedin_logo from './LI-In-Bug.png';
 import portfolio_logo from './8707701631578981545-512.png'
-import './App.css';
-import {Coordinates} from './coordinates.js';
-import {Time} from './time.js';
-import { useEffect } from 'react';
+import './App.css'
+import { Coordinates } from './coordinates.js'
+import { Time } from './time.js'
+import { useContext, useEffect, useState } from 'react'
+
+import Skychart from './skychart.js'
 
 
 var currentTime = new Time();
 
-function timedisplay(){
+function timedisplay() {
   currentTime.now();
   document.getElementById("localTime").innerHTML = currentTime.lTime();
   document.getElementById("UTCTime").innerHTML = currentTime.UTCTime();
@@ -20,86 +22,106 @@ function timedisplay(){
 
 function App() {
   useEffect(() => {
-    setInterval(timedisplay,1000)
+    setInterval(timedisplay, 1000);
   });
+  useWindowSize();
   return (
     <div className="App">
       <header className="App-header">
-        <a className="App-title">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a>
-          Skychart.js
-        </a>
-        </a>
-        <a className="App-datetimebox">
-        <a className="App-datetimetypes">
-          <a>
-            Local Time:
-          </a>
-          <a>
-            UTC Time:
-          </a>
-          <a>
-            Julian Day:
-          </a>
-          <a>
-            Sidereal Time:
-          </a>
-        </a>
-        <a className="App-datetimes">
-          <a id="localTime">
-            {currentTime.lTime()}
-          </a>
-          <a id="UTCTime">
-            {currentTime.UTCTime()}
-          </a>
-          <a id="julianDate">
-            {currentTime.jd()}
-          </a>
-          <a id="siderealTime">
-            {currentTime.sTime()}
-          </a>
-        </a>
-        </a>
+        <div className="App-title">
+          <img src={logo} className="App-logo" alt="logo" />
+          <div>
+            Skychart.js
+          </div>
+        </div>
+        <div className="App-datetimebox">
+          <div className="App-datetimetypes">
+            <div>
+              Local Time:
+            </div>
+            <div>
+              UTC Time:
+            </div>
+            <div>
+              Julian Day:
+            </div>
+            <div>
+              Sidereal Time:
+            </div>
+          </div>
+          <div className="App-datetimes">
+            <div id="localTime">
+              {currentTime.lTime()}
+            </div>
+            <div id="UTCTime">
+              {currentTime.UTCTime()}
+            </div>
+            <div id="julianDate">
+              {currentTime.jd()}
+            </div>
+            <div id="siderealTime">
+              {currentTime.sTime()}
+            </div>
+          </div>
+        </div>
       </header>
-      <body className="App-body">
-        <canvas className="App-skychart">
-          
-        </canvas>
-      </body>
+      <main className="App-body">
+        <Skychart id="main-canvas" className="App-skychart">
+          Canvas element did not load.
+        </Skychart>
+      </main>
       <footer
-          className="App-footer"
+        className="App-footer"
+      >
+        <div
+          className="App-link"
+          href="https://github.com/abdelrahim-hentabli/skychart.js"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <a
-            className="App-link"
-            href="https://github.com/abdelrahim-hentabli/skychart.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={github_logo} className="App-icons" />
+          <img src={github_logo} className="App-icons" />
               GitHub
-          </a>
-          <a
-            className="App-link"
-            href="https://www.linkedin.com/in/abdelrahim-hentabli/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={linkedin_logo} className="App-icons" />
+          </div>
+        <div
+          className="App-link"
+          href="https://www.linkedin.com/in/abdelrahim-hentabli/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={linkedin_logo} className="App-icons" />
             Linkedin
-          </a>
-          <a
-            className="App-link"
-            href="https://github.com/abdelrahim-hentabli"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={portfolio_logo} className="App-icons" />
+          </div>
+        <div
+          className="App-link"
+          href="https://github.com/abdelrahim-hentabli"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={portfolio_logo} className="App-icons" />
               Portfolio
-          </a>
-        </footer>
+          </div>
+      </footer>
     </div>
   );
+}
+
+function useWindowSize() {
+  useEffect(() => {
+    function handleResize() {
+      var c = document.getElementById("main-canvas");
+      var size = Math.min(window.innerHeight - Math.floor(15 * (Math.min(window.innerHeight, window.innerWidth) / 100)), window.innerWidth);
+
+      c.width = size;
+      c.height = size;
+      c.innerWidth = size;
+      c.innerHeight = size;
+    }
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 }
 
 

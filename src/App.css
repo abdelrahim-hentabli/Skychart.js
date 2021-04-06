@@ -33,24 +33,24 @@
   align-items: center;
 }
 
-.App-datetimebox {
-  font-size: calc(2vmin - 1px);
+.App-datetimelocbox {
+  font-size: calc(2vmin *.8 - 1px);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.App-datetimetypes {
-  font-size: calc(2vmin - 1px);
+.App-datetimeloctypes {
+  font-size: inherit;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
 }
 
-.App-datetimes {
-  font-size: calc(2vmin - 1px);
+.App-datetimeloc {
+  font-size: inherit;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

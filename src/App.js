@@ -5,7 +5,7 @@ import portfolio_logo from './8707701631578981545-512.png'
 import './App.css'
 import { Coordinates } from './coordinates.js'
 import { Time } from './time.js'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Skychart from './skychart.js'
 
@@ -31,19 +31,17 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-function timedisplay() {
-  currentTime.now();
-  document.getElementById("localTime").innerHTML = currentTime.lTime();
-  document.getElementById("UTCTime").innerHTML = currentTime.UTCTime();
-  document.getElementById("julianDate").innerHTML = currentTime.jd();
-  document.getElementById("siderealTime").innerHTML = currentTime.sTime();
-  document.getElementById("location").innerHTML = currentLocation.toString();
-}
 
 function App() {
+  const [timeUpdate, setTimeUpdate] = useState(0);
+  const [locUpdate, setLocUpdate] = useState(0);
   useEffect(() => {
-    setInterval(timedisplay, 1000);
-  });
+    const timer = setTimeout(()=> {
+      currentTime.now();
+      console.log("Updating Time");
+      setTimeUpdate(timeUpdate?0:1);
+    }, 1000);
+  }, [timeUpdate]);
   return (
     <div className="App">
       <header className="App-header">
@@ -104,7 +102,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={github_logo} className="App-icons" />
+          <img src={github_logo} className="App-icons" alt="github logo"/>
               GitHub
         </a>
         <a
@@ -113,7 +111,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={linkedin_logo} className="App-icons" />
+          <img src={linkedin_logo} className="App-icons" alt="linkedin logo"/>
             Linkedin
         </a>
         <a
@@ -122,7 +120,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={portfolio_logo} className="App-icons" />
+          <img src={portfolio_logo} className="App-icons" alt="portfolio logo"/>
               Portfolio
         </a>
       </footer>

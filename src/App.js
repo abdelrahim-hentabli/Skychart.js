@@ -35,6 +35,7 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 function App() {
   const [timeUpdate, setTimeUpdate] = useState(0);
   const [locUpdate, setLocUpdate] = useState(0);
+  //TODO: move this functionality to its own component so the whole App doesnt have to rerender every second
   useEffect(() => {
     const timer = setTimeout(()=> {
       currentTime.now();

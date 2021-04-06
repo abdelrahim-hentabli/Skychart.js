@@ -3,9 +3,9 @@ import github_logo from './GitHub-Mark-32px.png';
 import linkedin_logo from './LI-In-Bug.png';
 import portfolio_logo from './8707701631578981545-512.png'
 import './App.css'
-import { Coordinates } from './coordinates.js'
+//import { Coordinates } from './coordinates.js'
 import { Time } from './time.js'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import Skychart from './skychart.js'
 
@@ -24,7 +24,6 @@ function App() {
   useEffect(() => {
     setInterval(timedisplay, 1000);
   });
-  useWindowSize();
   return (
     <div className="App">
       <header className="App-header">
@@ -104,26 +103,5 @@ function App() {
     </div>
   );
 }
-
-function useWindowSize() {
-  useEffect(() => {
-    function handleResize() {
-      var c = document.getElementById("main-canvas");
-      var size = Math.min(window.innerHeight - Math.floor(15 * (Math.min(window.innerHeight, window.innerWidth) / 100)), window.innerWidth);
-
-      c.width = size;
-      c.height = size;
-      c.innerWidth = size;
-      c.innerHeight = size;
-
-    }
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-}
-
 
 export default App;

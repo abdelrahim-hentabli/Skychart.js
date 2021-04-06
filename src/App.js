@@ -3,7 +3,7 @@ import github_logo from './GitHub-Mark-32px.png';
 import linkedin_logo from './LI-In-Bug.png';
 import portfolio_logo from './8707701631578981545-512.png'
 import './App.css'
-//import { Coordinates } from './coordinates.js'
+import { Coordinates } from './coordinates.js'
 import { Time } from './time.js'
 import { useEffect } from 'react'
 
@@ -11,6 +11,25 @@ import Skychart from './skychart.js'
 
 
 var currentTime = new Time();
+var currentLocation = new Coordinates(0,0);
+
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  var crd = pos.coords;
+  currentLocation.setLatitude(crd.latitude);
+  currentLocation.setLongitude(crd.longitude);
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
 
 function timedisplay() {
   currentTime.now();
@@ -18,6 +37,7 @@ function timedisplay() {
   document.getElementById("UTCTime").innerHTML = currentTime.UTCTime();
   document.getElementById("julianDate").innerHTML = currentTime.jd();
   document.getElementById("siderealTime").innerHTML = currentTime.sTime();
+  document.getElementById("location").innerHTML = currentLocation.toString();
 }
 
 function App() {
@@ -33,8 +53,8 @@ function App() {
             Skychart.js
           </div>
         </div>
-        <div className="App-datetimebox">
-          <div className="App-datetimetypes">
+        <div className="App-datetimelocbox">
+          <div className="App-datetimeloctypes">
             <div>
               Local Time:
             </div>
@@ -47,8 +67,11 @@ function App() {
             <div>
               Sidereal Time:
             </div>
+            <div>
+              Location:
+            </div>
           </div>
-          <div className="App-datetimes">
+          <div className="App-datetimeloc">
             <div id="localTime">
               {currentTime.lTime()}
             </div>
@@ -61,6 +84,9 @@ function App() {
             <div id="siderealTime">
               {currentTime.sTime()}
             </div>
+            <div id="location">
+              {currentLocation.toString()}
+            </div>
           </div>
         </div>
       </header>
@@ -72,7 +98,7 @@ function App() {
       <footer
         className="App-footer"
       >
-        <div
+        <a
           className="App-link"
           href="https://github.com/abdelrahim-hentabli/skychart.js"
           target="_blank"
@@ -80,8 +106,8 @@ function App() {
         >
           <img src={github_logo} className="App-icons" />
               GitHub
-          </div>
-        <div
+        </a>
+        <a
           className="App-link"
           href="https://www.linkedin.com/in/abdelrahim-hentabli/"
           target="_blank"
@@ -89,8 +115,8 @@ function App() {
         >
           <img src={linkedin_logo} className="App-icons" />
             Linkedin
-          </div>
-        <div
+        </a>
+        <a
           className="App-link"
           href="https://github.com/abdelrahim-hentabli"
           target="_blank"
@@ -98,7 +124,7 @@ function App() {
         >
           <img src={portfolio_logo} className="App-icons" />
               Portfolio
-          </div>
+        </a>
       </footer>
     </div>
   );

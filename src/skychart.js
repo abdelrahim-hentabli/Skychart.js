@@ -18,7 +18,7 @@ const Skychart = props => {
             draw(can);
         }
         function handleResize() {
-            var size = Math.min(window.innerHeight - Math.floor(15 * (Math.min(window.innerHeight, window.innerWidth) / 100)), window.innerWidth);
+            var size = Math.min(window.innerHeight - Math.ceil(15 * (Math.min(window.innerHeight, window.innerWidth) / 100)), window.innerWidth);
             can.height = size;
             can.width = size;
             can.innerHeight = size;

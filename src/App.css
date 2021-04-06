@@ -22,6 +22,7 @@
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .App-title {
@@ -81,31 +82,26 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 20px;
+  font-size: calc(.5 * 5vmin);
   color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .App-link {
   color: white;
+  height: 5vmin;
+  width: 20vmin;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-icons {
-  flex: 1;
-  height: 20px;
+  height: calc(.5 * 5vmin);
   vertical-align: middle;
-  padding: 1vmin;
+  padding-right: 1vmin;
   position: absolute center;
   left:50%;
   top:50%;
-}
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

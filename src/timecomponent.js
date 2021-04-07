@@ -7,8 +7,8 @@ var currentLocation = new Coordinates(0,0);
 
 const TimeComponent = props => {
     const [timeUpdate, setTimeUpdate] = useState(0);
-    const [locUpdate, setLocUpdate] = useState(0);
-    //TODO: move this functionality to its own component so the whole App doesnt have to rerender every second
+    //const [locUpdate, setLocUpdate] = useState(0);
+    //TODO: move location to its own component so that location doesnt have to rerender every second
     useEffect(() => {
       const timer = setTimeout(()=> {
         currentTime.now();

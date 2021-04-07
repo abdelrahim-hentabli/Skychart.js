@@ -1,7 +1,7 @@
-import logo from './logo.svg'
+import logo from './logo.png'
 import github_logo from './GitHub-Mark-32px.png';
 import linkedin_logo from './LI-In-Bug.png';
-import portfolio_logo from './8707701631578981545-512.png'
+import portfolio_logo from './portfolio.png'
 import './App.css'
 
 import Skychart from './skychart.js'
@@ -15,7 +15,7 @@ function App() {
         <div className="App-title">
           <img src={logo} className="App-logo" alt="logo" />
           <div>
-            Skychart.js
+            skychart.js
           </div>
         </div>
         <TimeComponent/>

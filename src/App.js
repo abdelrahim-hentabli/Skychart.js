@@ -1,12 +1,14 @@
-import logo from './logo.png'
-import github_logo from './GitHub-Mark-32px.png';
-import linkedin_logo from './LI-In-Bug.png';
-import portfolio_logo from './portfolio.png'
+import logo from './images/logo.png'
+import github_logo from './images/GitHub-Mark-32px.png';
+import linkedin_logo from './images/LI-In-Bug.png';
+import portfolio_logo from './images/portfolio.png'
 import './App.css'
 
 import Skychart from './skychart.js'
 import TimeComponent from './timecomponent.js'
+import parseFile from './csvreader.js'
 
+parseFile();
 
 function App() {
   return (

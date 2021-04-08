@@ -9,6 +9,7 @@ background_image.src = backgroundImg;
 
 function draw(canvas){
     const context = canvas.getContext('2d');
+    context.font = "8px Arial";
     context.drawImage(background_image, 0, 0, context.canvas.width, context.canvas.height);
     const center = canvas.width/2;
     var starCenterX;
@@ -17,14 +18,24 @@ function draw(canvas){
     const compassRadius = 4/9 * canvas.width;
     const scale = compassRadius / 90;
     context.fillStyle = "white";
-    var toRadians = 180/Math.PI;
+    var toRadians = Math.PI / 180;
     for(var i = 0; i < starArray.length; i++){
+        if(starArray[i].name == "Polaris"){
+            console.log("Name: " + starArray[i].name)
+            console.log("Right Ascension: " + starArray[i].rightAscension);
+            console.log("Declination: " + starArray[i].declination);
+            console.log("Altitude: " + starArray[i].altitude);
+            console.log("Azimuth: " + starArray[i].azimuth);
+        }
         if(starArray[i].altitude > 0){
-            starCenterX = center - (scale * (starArray[i].altitude - 90) * (Math.cos(toRadians * starArray[i].azimuth)));
-            starCenterY = center - (scale * (starArray[i].altitude - 90) * (Math.sin(toRadians * starArray[i].azimuth)));
+            starCenterX = center - (scale * (90 - starArray[i].altitude) * (Math.sin(toRadians * starArray[i].azimuth)));
+            starCenterY = center - (scale * (90 - starArray[i].altitude) * (Math.cos(toRadians * starArray[i].azimuth)));
             context.beginPath();
             context.arc(starCenterX, starCenterY, starRadius, 0, 2* Math.PI);
             context.fill();
+            if(starArray[i].magnitude <= 2){
+                context.fillText(starArray[i].name, starCenterX+3, starCenterY);
+            }
         }
     }
 

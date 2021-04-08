@@ -61,7 +61,7 @@ export class Time {
     }
 
     getSiderealTime(){
-        return (this.sHour + (this.sMinute / 60) + (this.sSecond / 360));
+        return (this.sHour + (this.sMinute / 60) + (this.sSecond / 3600));
     }
     
     //Print Helper

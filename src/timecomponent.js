@@ -11,7 +11,6 @@ const TimeComponent = props => {
     useEffect(() => {
       const timer = setTimeout(()=> {
         currentTime.now();
-        console.log("Updating Time");
         setTimeUpdate(timeUpdate?0:1);
       }, 1000);
     }, [timeUpdate]);

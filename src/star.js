@@ -20,7 +20,7 @@ class Star{
     update(coordinate, time){
         var longitude = coordinate.getLongitude();
         var latitude = coordinate.getLatitude();
-        let LHA = time.getSiderealTime() + (longitude * 24.0) / 360.0 - this.rightAscension;
+        var LHA = time.getSiderealTime() + (longitude * 24.0) / 360.0 - this.rightAscension;
         if(LHA < 0 ){
             LHA += 24;
         }

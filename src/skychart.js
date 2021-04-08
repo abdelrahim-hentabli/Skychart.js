@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-import backgroundImg from "./skychart_background.png"
+import backgroundImg from "./images/skychart_background.png"
 
 const background_image = new Image();
 background_image.src = backgroundImg;

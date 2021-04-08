@@ -1,9 +1,8 @@
 import {useEffect, useState, useRef } from 'react'
-import { Coordinates } from './coordinates.js'
-import { Time } from './time.js'
 
-var currentTime = new Time();
-var currentLocation = new Coordinates(0,0);
+
+import {currentTime, currentLocation} from './globalvars.js'
+
 
 const TimeComponent = props => {
     const [timeUpdate, setTimeUpdate] = useState(0);

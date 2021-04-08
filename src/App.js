@@ -6,7 +6,7 @@ import './App.css'
 
 import Skychart from './skychart.js'
 import TimeComponent from './timecomponent.js'
-import parseFile from './csvreader.js'
+import {parseFile} from './csvreader.js'
 
 parseFile();
 

@@ -17,4 +17,4 @@ function parseFile(){
     }
 }
 
-export default parseFile
+export {parseFile, starArray}

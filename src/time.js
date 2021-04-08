@@ -15,8 +15,8 @@ export class Time {
         var remainder = gmst;
         this.sHour = Math.trunc(remainder);
         remainder = (remainder - this.sHour) * 60;
-        this.sMinmute = Math.trunc(remainder);
-        remainder = (remainder - this.sMinmute) * 60;
+        this.sMinute = Math.trunc(remainder);
+        remainder = (remainder - this.sMinute) * 60;
         this.sSecond = Math.trunc(remainder);
     }
     gmst(){
@@ -59,6 +59,10 @@ export class Time {
     getSecond(){
         return this.date.getSeconds();
     }
+
+    getSiderealTime(){
+        return (this.sHour + (this.sMinute / 60) + (this.sSecond / 360));
+    }
     
     //Print Helper
     padzeroes(number, size){
@@ -79,13 +83,13 @@ export class Time {
     }
 
     sTime(){
-        return this.padzeroes(this.sHour,2) + ":" + this.padzeroes(this.sMinmute,2) + ":" + this.padzeroes(this.sSecond,2);
+        return this.padzeroes(this.sHour,2) + ":" + this.padzeroes(this.sMinute,2) + ":" + this.padzeroes(this.sSecond,2);
     }
     
     toString(){
         var output = this.padzeroes(this.date.getHours(),2) + ":" + this.padzeroes(this.date.getMinutes(),2) + ":" + this.padzeroes(this.date.getSeconds(),2) + "   " ;
         output +=  this.padzeroes(this.date.getMonth()+1,2) + "/" + this.padzeroes(this.date.getDate(),2) + "/" + this.date.getFullYear() + "   ";
-        output += this.padzeroes(this.sHour,2) + ":" + this.padzeroes(this.sMinmute,2) + ":" +this.padzeroes( this.sSecond,2);
+        output += this.padzeroes(this.sHour,2) + ":" + this.padzeroes(this.sMinute,2) + ":" +this.padzeroes( this.sSecond,2);
         return output;
     }
 }

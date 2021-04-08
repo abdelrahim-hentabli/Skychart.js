@@ -36,10 +36,10 @@ export class Coordinates {
            output = this.round_to_2(this.latitude) + " N  ";
        }
        if(this.longitude < 0){
-           output += -this.round_to_2(this.longitude) + " E";
+           output += -this.round_to_2(this.longitude) + " W";
        }
        else{
-           output += this.round_to_2(this.longitude) + " W";
+           output += this.round_to_2(this.longitude) + " E";
        }
        return output;
     }

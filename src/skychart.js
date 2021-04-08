@@ -34,7 +34,7 @@ function draw(canvas){
             context.arc(starCenterX, starCenterY, starRadius, 0, 2* Math.PI);
             context.fill();
             if(starArray[i].magnitude <= 2){
-                context.fillText(starArray[i].name, starCenterX+3, starCenterY);
+                context.fillText(starArray[i].name, starCenterX+3, starCenterY+3);
             }
         }
     }

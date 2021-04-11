@@ -3,17 +3,34 @@ export class Coordinates {
         return Math.round(num *100)/100;
     }
 
+    /********************************************************
+    |   Latitude:   [-180 , 180]
+    |   Longitude:  [-90  ,  90]
+    ********************************************************/
     constructor(latitude, longitude){
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.setLatitude(latitude);
+        this.setLongitude(longitude);
     }
 
     //Setters
     setLatitude(latitude){
-        this.latitude = latitude;
+        if(latitude < -180 || latitude > 180){
+            console.log("Error: Invalid latitude");
+            this.latitude = 0;
+        }
+        else{
+            this.latitude = latitude;
+        }
     }
     setLongitude(longitude){
-        this.longitude = longitude;
+        if(longitude < -90 || longitude > 90){
+
+            console.log("Error: Invalid longitude");
+            this.longitude = 0;
+        }
+        else{
+            this.longitude = longitude;
+        }
     }
 
 
@@ -26,7 +43,9 @@ export class Coordinates {
         return this.longitude;
     }
 
-    //Print
+
+
+    //Prints in the format "|<Latitude>|<S/N>  |<Longitude>| <E/W>"
     toString(){
        var output;
        if(this.latitude < 0){

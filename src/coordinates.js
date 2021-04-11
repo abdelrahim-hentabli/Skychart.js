@@ -1,7 +1,7 @@
 export class Coordinates {
     /*  Basic class which stores geocoordinates for user location
-    *   Latitude:   [-180 , 180]
-    *   Longitude:  [-90  ,  90]
+    *   Latitude:   [-90 , 90]
+    *   Longitude:  [-180  ,  180]
     */
     constructor(latitude, longitude){
         this.setLatitude(latitude);
@@ -15,7 +15,7 @@ export class Coordinates {
 
     //Setters
     setLatitude(latitude){
-        if(latitude < -180 || latitude > 180){
+        if(latitude < -90 || latitude > 90){
             console.log("Error: Invalid latitude");
             this.latitude = 0;
         }
@@ -24,7 +24,7 @@ export class Coordinates {
         }
     }
     setLongitude(longitude){
-        if(longitude < -90 || longitude > 90){
+        if(longitude < -180 || longitude > 180){
 
             console.log("Error: Invalid longitude");
             this.longitude = 0;

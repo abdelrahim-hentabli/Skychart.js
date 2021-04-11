@@ -1,3 +1,8 @@
+/********************************************
+ * List of top 300 brightest(by visible magnitude) stars in the sky
+ * Stars are stored in string format and can be parsed the same way as a basic CSV File
+ * Columns are: Number, Proper Name, Common Name (can be empty), Right Ascension (RA) Hour, RA Minute, Declination, Visible Magnitude, Absolute Magnitude
+ */              
 const stars =  "1,Alpha Canis Majoris,Sirius,6,45,-16.7,-1.46,1.43\n\
                 2,Alpha Carinae,Canopus,6,24,-52.7,-0.73,-5.64\n\
                 3,Alpha Centauri,Rigil Kentaurus,14,40,-60.8,-0.29,4.06\n\

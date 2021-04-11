@@ -1,15 +1,16 @@
 export class Coordinates {
-    round_to_2(num){
-        return Math.round(num *100)/100;
-    }
-
-    /********************************************************
-    |   Latitude:   [-180 , 180]
-    |   Longitude:  [-90  ,  90]
-    ********************************************************/
+    /*  Basic class which stores geocoordinates for user location
+    *   Latitude:   [-180 , 180]
+    *   Longitude:  [-90  ,  90]
+    */
     constructor(latitude, longitude){
         this.setLatitude(latitude);
         this.setLongitude(longitude);
+    }
+
+    //Helpers
+    round_to_2(num){
+        return Math.round(num *100)/100;
     }
 
     //Setters

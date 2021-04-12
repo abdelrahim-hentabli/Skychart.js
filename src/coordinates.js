@@ -1,3 +1,5 @@
+import roundN from './roundn.js'
+
 export class Coordinates {
     /*  Basic class which stores geocoordinates for user location
     *   Latitude:   [-90 , 90]
@@ -6,11 +8,6 @@ export class Coordinates {
     constructor(latitude, longitude){
         this.setLatitude(latitude);
         this.setLongitude(longitude);
-    }
-
-    //Helpers
-    round_to_2(num){
-        return Math.round(num *100)/100;
     }
 
     //Setters
@@ -50,16 +47,16 @@ export class Coordinates {
     toString(){
        var output;
        if(this.latitude < 0){
-           output = -this.round_to_2(this.latitude) + " S  ";
+           output = -roundN(this.latitude, 2) + " S  ";
        }
        else{
-           output = this.round_to_2(this.latitude) + " N  ";
+           output = roundN(this.latitude, 2) + " N  ";
        }
        if(this.longitude < 0){
-           output += -this.round_to_2(this.longitude) + " W";
+           output += -roundN(this.longitude, 2) + " W";
        }
        else{
-           output += this.round_to_2(this.longitude) + " E";
+           output += roundN(this.longitude, 2) + " E";
        }
        return output;
     }

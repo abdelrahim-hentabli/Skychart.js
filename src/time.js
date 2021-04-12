@@ -1,3 +1,6 @@
+import padzeroes from './padzeroes.js'
+import roundN from './roundn.js'
+
 export class Time {
     /*  Basic class which stores time
     *   uses javascript Date() object
@@ -6,11 +9,6 @@ export class Time {
     constructor(){
         this.date = new Date();
         this.now();
-    }
-
-    //Helpers
-    padzeroes(number, size){
-        return number.toString().padStart(size, "0");
     }
 
     //Setters
@@ -28,12 +26,12 @@ export class Time {
         this.sSecond = Math.trunc(remainder);
     }
     gmst(){
-        var d = this.jd() - 2451545.0;
+        var d = this.jd_disc() - 2451545.0;
         var T = d/ 36525;
         var temp = 6.697374558+ (.06570982441908 * d) + 1.00273790935 * (this.date.getUTCHours() + (this.date.getUTCMinutes() / 60.0) + (this.date.getUTCSeconds()/3600.0)) + .000026 * Math.pow(T,2);
         return (temp - (Math.trunc(temp/24) *24));
     }
-    jd(){
+    jd_disc(){
         //rework this function and update a stored value, this function is getting called multiple times needlessly
         var m = this.date.getUTCMonth() +1;
 		var y = this.date.getUTCFullYear();
@@ -48,7 +46,10 @@ export class Time {
 		var f = Math.trunc(30.6001 * (m + 1));
 		return c+this.date.getUTCDate()+e+f-1524.5;
     }
+    jd(){
+        return roundN(this.jd_disc() + (this.date.getUTCHours() + (this.date.getUTCMinutes() / 60.0) + (this.date.getUTCSeconds()/3600.0))/24, 5);
 
+    }
     //Getters
     getDay(){
         return this.date.getDate();
@@ -75,25 +76,25 @@ export class Time {
     
     //Print
     lTime(){
-        var output = this.padzeroes(this.date.getHours(),2) + ":" + this.padzeroes(this.date.getMinutes(),2) + ":" + this.padzeroes(this.date.getSeconds(),2) + "   " ;
-        output +=  this.padzeroes(this.date.getMonth()+1,2) + "/" + this.padzeroes(this.date.getDate(),2) + "/" + this.date.getFullYear() + "   ";
+        var output = padzeroes(this.date.getHours(),2) + ":" + padzeroes(this.date.getMinutes(),2) + ":" + padzeroes(this.date.getSeconds(),2) + "   " ;
+        output +=  padzeroes(this.date.getMonth()+1,2) + "/" + padzeroes(this.date.getDate(),2) + "/" + this.date.getFullYear() + "   ";
         return output;
     }
 
     UTCTime(){
-        var output = this.padzeroes(this.date.getUTCHours(),2) + ":" + this.padzeroes(this.date.getUTCMinutes(),2) + ":" + this.padzeroes(this.date.getUTCSeconds(),2) + "   " ;
-        output +=  this.padzeroes(this.date.getUTCMonth()+1,2) + "/" + this.padzeroes(this.date.getUTCDate(),2) + "/" + this.date.getUTCFullYear() + "   ";
+        var output = padzeroes(this.date.getUTCHours(),2) + ":" + padzeroes(this.date.getUTCMinutes(),2) + ":" + padzeroes(this.date.getUTCSeconds(),2) + "   " ;
+        output +=  padzeroes(this.date.getUTCMonth()+1,2) + "/" + padzeroes(this.date.getUTCDate(),2) + "/" + this.date.getUTCFullYear() + "   ";
         return output;
     }
 
     sTime(){
-        return this.padzeroes(this.sHour,2) + ":" + this.padzeroes(this.sMinute,2) + ":" + this.padzeroes(this.sSecond,2);
+        return padzeroes(this.sHour,2) + ":" + padzeroes(this.sMinute,2) + ":" + padzeroes(this.sSecond,2);
     }
     
     toString(){
-        var output = this.padzeroes(this.date.getHours(),2) + ":" + this.padzeroes(this.date.getMinutes(),2) + ":" + this.padzeroes(this.date.getSeconds(),2) + "   " ;
-        output +=  this.padzeroes(this.date.getMonth()+1,2) + "/" + this.padzeroes(this.date.getDate(),2) + "/" + this.date.getFullYear() + "   ";
-        output += this.padzeroes(this.sHour,2) + ":" + this.padzeroes(this.sMinute,2) + ":" +this.padzeroes( this.sSecond,2);
+        var output = padzeroes(this.date.getHours(),2) + ":" + padzeroes(this.date.getMinutes(),2) + ":" + padzeroes(this.date.getSeconds(),2) + "   " ;
+        output +=  padzeroes(this.date.getMonth()+1,2) + "/" + padzeroes(this.date.getDate(),2) + "/" + this.date.getFullYear() + "   ";
+        output += padzeroes(this.sHour,2) + ":" + padzeroes(this.sMinute,2) + ":" +this.padzeroes( this.sSecond,2);
         return output;
     }
 }

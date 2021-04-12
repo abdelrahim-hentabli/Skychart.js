@@ -45,7 +45,7 @@ const TimeComponent = props => {
       <div className="App-datetimeloc">
         <div id="localTime">{currentTime.lTime()}</div>
         <div id="UTCTime">{currentTime.UTCTime()}</div>
-        <div id="julianDate">{currentTime.jd()}</div>
+        <div id="julianDate">{currentTime.jd().toString().padEnd(13,"0")}</div>
         <div id="siderealTime">{currentTime.sTime()}</div>
         <div id="location">{currentLocation.toString()}</div>
       </div>

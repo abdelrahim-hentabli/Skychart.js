@@ -1,4 +1,15 @@
+
+
 class Star{
+    /**
+     * Star class which takes care of altitude and azimuth calculation, as well as characteristic information for each star
+     * Number: ranking of star based on brightness
+     * pName: proper name (every star has one)
+     * name: name e.g. Sirius (not every star has one)
+     * rightAscension: right ascension in decimal notation
+     * declination: declination in decimal notation
+     * magnitude: visible magnitude
+     */
     constructor(number, pName, name, rightAscension, declination, magnitude){
         this.number = number;
         this.properName = pName;
@@ -9,6 +20,8 @@ class Star{
         this.altitude = -1;
         this.azimuth = -.1;
     }
+
+    //Helper Functions
     toDegrees(radian){
         return radian * (180 / Math.PI);
     }
@@ -17,6 +30,7 @@ class Star{
         return degree * (Math.PI / 180);
     }
 
+    //Takes care of all altitude and azimuth calculation
     update(coordinate, time){
         var longitude = coordinate.getLongitude();
         var latitude = coordinate.getLatitude();

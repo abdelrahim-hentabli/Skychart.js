@@ -1,5 +1,4 @@
-
-
+//TODO copy eq2hor calculator with nutate, precess, etc.
 class Star{
     /**
      * Star class which takes care of altitude and azimuth calculation, as well as characteristic information for each star

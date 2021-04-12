@@ -1,8 +1,16 @@
 export class Time {
-    //Constructor
+    /*  Basic class which stores time
+    *   uses javascript Date() object
+    *   only updates on now() and setters
+    */
     constructor(){
         this.date = new Date();
         this.now();
+    }
+
+    //Helpers
+    padzeroes(number, size){
+        return number.toString().padStart(size, "0");
     }
 
     //Setters
@@ -26,6 +34,7 @@ export class Time {
         return (temp - (Math.trunc(temp/24) *24));
     }
     jd(){
+        //rework this function and update a stored value, this function is getting called multiple times needlessly
         var m = this.date.getUTCMonth() +1;
 		var y = this.date.getUTCFullYear();
 		if (m <= 2){
@@ -62,11 +71,6 @@ export class Time {
 
     getSiderealTime(){
         return (this.sHour + (this.sMinute / 60) + (this.sSecond / 3600));
-    }
-    
-    //Print Helper
-    padzeroes(number, size){
-        return number.toString().padStart(size, "0");
     }
     
     //Print

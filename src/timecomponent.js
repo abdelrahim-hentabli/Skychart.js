@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef } from 'react'
+import {useEffect, useState} from 'react'
 
 
 import {currentTime, currentLocation} from './globalvars.js'
@@ -9,30 +9,33 @@ const TimeComponent = props => {
     //const [locUpdate, setLocUpdate] = useState(0);
     //TODO: move location to its own component so that location doesnt have to rerender every second
     useEffect(() => {
-      const timer = setTimeout(()=> {
+      setTimeout(()=> {
         currentTime.now();
         setTimeUpdate(timeUpdate?0:1);
       }, 1000);
+
     }, [timeUpdate]);
 
-    var options = {
-      enableHighAccuracy: false,
-      timeout: 5000,
-      maximumAge: 0
-    };
-
-    function success(pos) {
-      var crd = pos.coords;
-      currentLocation.setLatitude(crd.latitude);
-      currentLocation.setLongitude(crd.longitude);
-    }
-
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
-
-    navigator.geolocation.getCurrentPosition(success, error, options);
-
+    useEffect(() => {
+      var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      };
+  
+      function success(pos) {
+        var crd = pos.coords;
+        currentLocation.setLatitude(crd.latitude);
+        currentLocation.setLongitude(crd.longitude);
+      }
+  
+      function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      }
+  
+      navigator.geolocation.getCurrentPosition(success, error, options);
+    }, []);
+    
     return (
     <div className="App-datetimelocbox">
       <div className="App-datetimeloctypes">

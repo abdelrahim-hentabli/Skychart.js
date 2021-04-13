@@ -20,7 +20,7 @@ function draw(canvas){
     context.fillStyle = "white";
     var toRadians = Math.PI / 180;
     for(var i = 0; i < starArray.length; i++){
-        if(starArray[i].name == "Polaris"){
+        if(starArray[i].name === "Polaris"){
             console.log("Name: " + starArray[i].name)
             console.log("Right Ascension: " + starArray[i].rightAscension);
             console.log("Declination: " + starArray[i].declination);
@@ -33,7 +33,7 @@ function draw(canvas){
             context.beginPath();
             context.arc(starCenterX, starCenterY, starRadius, 0, 2* Math.PI);
             context.fill();
-            if(starArray[i].magnitude <= 2){
+            if(starArray[i].magnitude <= 2 && starArray[i].name !== ""){
                 context.fillText(starArray[i].name, starCenterX+3, starCenterY+3);
             }
         }

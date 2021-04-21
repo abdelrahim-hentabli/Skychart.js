@@ -13,7 +13,7 @@ function parseFile(){
     for(var i = 0; i < starsStringArray.length; i++){
         currentLine = starsStringArray[i].split(',');
         starArray.push(new Star(parseInt(currentLine[0]), currentLine[1], currentLine[2], parseFloat(currentLine[3])+ parseFloat(currentLine[4])/60, parseFloat(currentLine[5]), parseFloat(currentLine[6])));
-        starArray[i].update(currentLocation, currentTime);
+        starArray[i].update(currentLocation.latitude, currentLocation.longitude, currentTime);
     }
 }
 

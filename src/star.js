@@ -30,9 +30,7 @@ class Star{
     }
 
     //Takes care of all altitude and azimuth calculation
-    update(coordinate, time){
-        var longitude = coordinate.getLongitude();
-        var latitude = coordinate.getLatitude();
+    update(latitude, longitude, time){
         var LHA = time.getSiderealTime() + (longitude * 24.0) / 360.0 - this.rightAscension;
         if(LHA < 0){
             LHA += 24;

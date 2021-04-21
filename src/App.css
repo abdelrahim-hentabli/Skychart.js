@@ -5,7 +5,7 @@
 }
 
 .App-logo {
-  height: 8vmin;
+  height: 6vmin;
   padding: 1vmin;
   pointer-events: none;
   vertical-align: middle;
@@ -19,7 +19,7 @@
   max-height: 10vmin;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;

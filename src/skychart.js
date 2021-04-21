@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react'
-import { starArray } from './csvreader'
+import { starArray, parseFile } from './csvreader'
+import {currentTime} from './globalvars'
 
 import backgroundImg from "./images/skychart_background.png"
 
 
 const background_image = new Image();
 background_image.src = backgroundImg;
+
 
 function draw(canvas){
     const context = canvas.getContext('2d');
@@ -20,13 +22,6 @@ function draw(canvas){
     context.fillStyle = "white";
     var toRadians = Math.PI / 180;
     for(var i = 0; i < starArray.length; i++){
-        if(starArray[i].name === "Polaris"){
-            console.log("Name: " + starArray[i].name)
-            console.log("Right Ascension: " + starArray[i].rightAscension);
-            console.log("Declination: " + starArray[i].declination);
-            console.log("Altitude: " + starArray[i].altitude);
-            console.log("Azimuth: " + starArray[i].azimuth);
-        }
         if(starArray[i].altitude > 0){
             starCenterX = center - (scale * (90 - starArray[i].altitude) * (Math.sin(toRadians * starArray[i].azimuth)));
             starCenterY = center - (scale * (90 - starArray[i].altitude) * (Math.cos(toRadians * starArray[i].azimuth)));
@@ -43,6 +38,7 @@ function draw(canvas){
 
 const Skychart = props => {
     const canvas = useRef(null)
+    parseFile();
     useEffect(() => {
         const can= canvas.current;
         background_image.onload = function(){
@@ -62,6 +58,13 @@ const Skychart = props => {
       
         return () => window.removeEventListener("resize", handleResize);
     },[]);
+    useEffect(() => {
+        for(var i = 0; i < starArray.length; i++){
+            starArray[i].update(props.latitude, props.longitude, currentTime);
+        }
+        const can = canvas.current;
+        draw(can);
+    }, [props.latitude, props.longitude]);
     return (<canvas ref={canvas} {...props}/>)
 }
 

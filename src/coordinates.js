@@ -16,7 +16,5 @@ export function printLatLong(latitude, longitude){
     }
     return output;
  }
-
-
-
+ 
 export default printLatLong;

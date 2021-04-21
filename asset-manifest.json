@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/skychart.js/static/css/main.811e3aff.chunk.css",
-    "main.js": "/skychart.js/static/js/main.f9215e26.chunk.js",
-    "main.js.map": "/skychart.js/static/js/main.f9215e26.chunk.js.map",
+    "main.js": "/skychart.js/static/js/main.298d0033.chunk.js",
+    "main.js.map": "/skychart.js/static/js/main.298d0033.chunk.js.map",
     "runtime-main.js": "/skychart.js/static/js/runtime-main.127ac61e.js",
     "runtime-main.js.map": "/skychart.js/static/js/runtime-main.127ac61e.js.map",
     "static/js/2.2acc2801.chunk.js": "/skychart.js/static/js/2.2acc2801.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.127ac61e.js",
     "static/js/2.2acc2801.chunk.js",
     "static/css/main.811e3aff.chunk.css",
-    "static/js/main.f9215e26.chunk.js"
+    "static/js/main.298d0033.chunk.js"
   ]
 }

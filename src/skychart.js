@@ -13,14 +13,38 @@ background_image.src = backgroundImg;
 function draw(canvas){
     const context = canvas.getContext('2d');
     context.clearRect(0,0, canvas.width, canvas.height);
-    context.font = "8px Arial";
+    context.font = "40px Arial";
+    context.fillStyle = "black";
     context.drawImage(background_image, 0, 0, context.canvas.width, context.canvas.height);
+    context.translate(canvas.width / 2, canvas.height / 2)
+    for(var theta = 0; theta < 360; theta +=30){
+        switch(theta){
+            case 0:
+                context.fillText("N", 0, (-context.canvas.height / 2) +40);
+                break;
+            case 90:
+                context.fillText("E", 0, (-context.canvas.height / 2) +40);
+                break;
+            case 180:
+                context.fillText("S", 0, (-context.canvas.height / 2) +40);
+                break;
+            case 270:
+                context.fillText("W", 0, (-context.canvas.height / 2) +40);
+                break;
+            default:
+                context.fillText(theta.toString(), 0, (-context.canvas.height / 2) +40);
+                break;
+        }
+        context.rotate(-Math.PI / 6);
+    }
+    context.translate(-canvas.width / 2, -canvas.height / 2);
     const center = canvas.width/2;
     var starCenterX;
     var starCenterY;
     var starRadius = 3;
     const compassRadius = 4/9 * canvas.width;
     const scale = compassRadius / 90;
+    context.font = "8px Arial";
     context.fillStyle = "white";
     var toRadians = Math.PI / 180;
     for(var i = 0; i < starArray.length; i++){

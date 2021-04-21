@@ -32,6 +32,7 @@ export class Time {
         return (temp - (Math.trunc(temp/24) *24));
     }
     jd_disc(){
+        //jd date, date changes once a day
         //rework this function and update a stored value, this function is getting called multiple times needlessly
         var m = this.date.getUTCMonth() +1;
 		var y = this.date.getUTCFullYear();
@@ -47,6 +48,7 @@ export class Time {
 		return c+this.date.getUTCDate()+e+f-1524.5;
     }
     jd(){
+        //exact jd time
         return roundN(this.jd_disc() + (this.date.getUTCHours() + (this.date.getUTCMinutes() / 60.0) + (this.date.getUTCSeconds()/3600.0))/24, 5);
 
     }

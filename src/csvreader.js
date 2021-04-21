@@ -9,6 +9,7 @@ var starArray = [];
 function parseFile(){
     var starsStringArray = stars.split('\n');
     var currentLine;
+    starArray = [];
     
     for(var i = 0; i < starsStringArray.length; i++){
         currentLine = starsStringArray[i].split(',');

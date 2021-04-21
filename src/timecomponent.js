@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 
 
-import {currentTime, currentLocation} from './globalvars.js'
+import {currentTime} from './globalvars.js'
 
 import printLatLong from './coordinates.js'
 

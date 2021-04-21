@@ -6,11 +6,35 @@ import './App.css'
 
 import Skychart from './skychart.js'
 import TimeComponent from './timecomponent.js'
-import {parseFile} from './csvreader.js'
 
-parseFile();
+import { useEffect, useState } from 'react';
+
 
 function App() {
+  const [latitude, setLatitudeUpdate] = useState(0);
+  const [longitude, setLongitudeUpdate] = useState(0);
+  const [time, setTimeUpdate] = useState(0);
+  
+  useEffect(() => {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    function success(pos) {
+      var crd = pos.coords;
+      setLatitudeUpdate(crd.latitude);
+      setLongitudeUpdate(crd.longitude);
+    }
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,10 +44,18 @@ function App() {
             skychart.js
           </div>
         </div>
-        <TimeComponent/>
+        <TimeComponent
+          latitude={latitude}
+          longitude={longitude}
+          time={time}  
+        />
       </header>
       <main className="App-body">
-        <Skychart id="main-canvas" className="App-skychart">
+        <Skychart id="main-canvas" className="App-skychart"
+          latitude={latitude}
+          longitude={longitude}
+          time={time}  
+        >
           Canvas element did not load.
         </Skychart>
       </main>

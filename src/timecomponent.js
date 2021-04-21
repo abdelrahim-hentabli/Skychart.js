@@ -3,11 +3,12 @@ import {useEffect, useState} from 'react'
 
 import {currentTime, currentLocation} from './globalvars.js'
 
+import printLatLong from './coordinates.js'
+
 
 const TimeComponent = props => {
     const [timeUpdate, setTimeUpdate] = useState(0);
-    //const [locUpdate, setLocUpdate] = useState(0);
-    //TODO: move location to its own component so that location doesnt have to rerender every second
+
     useEffect(() => {
       setTimeout(()=> {
         currentTime.now();
@@ -15,26 +16,6 @@ const TimeComponent = props => {
       }, 1000);
 
     }, [timeUpdate]);
-
-    useEffect(() => {
-      var options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      };
-  
-      function success(pos) {
-        var crd = pos.coords;
-        currentLocation.setLatitude(crd.latitude);
-        currentLocation.setLongitude(crd.longitude);
-      }
-  
-      function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-      }
-  
-      navigator.geolocation.getCurrentPosition(success, error, options);
-    }, []);
     
     return (
     <div className="App-datetimelocbox">
@@ -50,7 +31,7 @@ const TimeComponent = props => {
         <div id="UTCTime">{currentTime.UTCTime()}</div>
         <div id="julianDate">{currentTime.jd().toString().padEnd(13,"0")}</div>
         <div id="siderealTime">{currentTime.sTime()}</div>
-        <div id="location">{currentLocation.toString()}</div>
+        <div id="location">{printLatLong(props.latitude, props.longitude)}</div>
       </div>
     </div>
     )

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import printLatLong from './coordinates';
 import { starArray, parseFile } from './csvreader'
 import {currentTime} from './globalvars'
 
@@ -11,6 +12,7 @@ background_image.src = backgroundImg;
 
 function draw(canvas){
     const context = canvas.getContext('2d');
+    context.clearRect(0,0, canvas.width, canvas.height);
     context.font = "8px Arial";
     context.drawImage(background_image, 0, 0, context.canvas.width, context.canvas.height);
     const center = canvas.width/2;
@@ -33,13 +35,13 @@ function draw(canvas){
             }
         }
     }
-
 }
 
 const Skychart = props => {
     const canvas = useRef(null)
-    parseFile();
+    
     useEffect(() => {
+        parseFile();
         const can= canvas.current;
         background_image.onload = function(){
             draw(can);
@@ -55,16 +57,19 @@ const Skychart = props => {
         window.addEventListener("resize", handleResize);
       
         handleResize();
-      
+
         return () => window.removeEventListener("resize", handleResize);
     },[]);
+
     useEffect(() => {
+        console.log(printLatLong(props.latitude, props.longitude));
         for(var i = 0; i < starArray.length; i++){
             starArray[i].update(props.latitude, props.longitude, currentTime);
         }
         const can = canvas.current;
         draw(can);
     }, [props.latitude, props.longitude]);
+    
     return (<canvas ref={canvas} {...props}/>)
 }
 

@@ -82,7 +82,7 @@ function App() {
         </a>
         <a
           className="App-link"
-          href="https://github.com/abdelrahim-hentabli"
+          href="https://rhentabli.com"
           target="_blank"
           rel="noopener noreferrer"
         >

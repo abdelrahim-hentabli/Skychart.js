@@ -4,10 +4,6 @@ import { starArray, parseFile } from './csvreader'
 import {currentTime} from './globalvars'
 
 
-const background_image = new Image();
-background_image.src = backgroundImg;
-
-
 function draw(canvas){
     const context = canvas.getContext('2d');
     var fontSize = canvas.height/16;

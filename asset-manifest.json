@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/skychart.js/static/css/main.811e3aff.chunk.css",
-    "main.js": "/skychart.js/static/js/main.51f9374c.chunk.js",
-    "main.js.map": "/skychart.js/static/js/main.51f9374c.chunk.js.map",
+    "main.js": "/skychart.js/static/js/main.9dcbef1a.chunk.js",
+    "main.js.map": "/skychart.js/static/js/main.9dcbef1a.chunk.js.map",
     "runtime-main.js": "/skychart.js/static/js/runtime-main.127ac61e.js",
     "runtime-main.js.map": "/skychart.js/static/js/runtime-main.127ac61e.js.map",
     "static/js/2.a69b7222.chunk.js": "/skychart.js/static/js/2.a69b7222.chunk.js",
@@ -11,13 +11,12 @@
     "static/js/3.8de36770.chunk.js.map": "/skychart.js/static/js/3.8de36770.chunk.js.map",
     "index.html": "/skychart.js/index.html",
     "static/css/main.811e3aff.chunk.css.map": "/skychart.js/static/css/main.811e3aff.chunk.css.map",
-    "static/js/2.a69b7222.chunk.js.LICENSE.txt": "/skychart.js/static/js/2.a69b7222.chunk.js.LICENSE.txt",
-    "static/media/skychart_background.e5ed5fca.png": "/skychart.js/static/media/skychart_background.e5ed5fca.png"
+    "static/js/2.a69b7222.chunk.js.LICENSE.txt": "/skychart.js/static/js/2.a69b7222.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.127ac61e.js",
     "static/js/2.a69b7222.chunk.js",
     "static/css/main.811e3aff.chunk.css",
-    "static/js/main.51f9374c.chunk.js"
+    "static/js/main.9dcbef1a.chunk.js"
   ]
 }

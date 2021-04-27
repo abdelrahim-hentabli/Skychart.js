@@ -12,11 +12,18 @@ background_image.src = backgroundImg;
 
 function draw(canvas){
     const context = canvas.getContext('2d');
-    context.clearRect(0,0, canvas.width, canvas.height);
     var fontSize = canvas.height/16;
     context.font = fontSize.toString() + "px Arial";
-    context.fillStyle = "black";
-    context.drawImage(background_image, 0, 0, context.canvas.width, context.canvas.height);
+    context.fillStyle = "lightgray"
+    context.fillRect(0,0,canvas.width, canvas.height)
+    context.fillStyle = "gray"
+    context.beginPath()
+    context.arc(canvas.width / 2, canvas.height/2, canvas.height/2, 0, 2* Math.PI)
+    context.fill();
+    context.fillStyle = "black"
+    context.beginPath()
+    context.arc(canvas.width / 2, canvas.height/2, canvas.height/2 - fontSize, 0, 2* Math.PI)
+    context.fill();
     context.translate(canvas.width / 2, canvas.height / 2);
     var currentCompassAngle;
     for(var theta = 0; theta < 360; theta +=30){
@@ -37,7 +44,7 @@ function draw(canvas){
                 currentCompassAngle = theta.toString() + "°";
                 break;
         }
-        context.fillText(currentCompassAngle, -(context.measureText(currentCompassAngle).width / 2), (-context.canvas.height / 2) + .8 * fontSize);
+        context.fillText(currentCompassAngle, -(context.measureText(currentCompassAngle).width / 2), (-context.canvas.height / 2) + .9 * fontSize);
         context.rotate(-Math.PI / 6);
     }
     context.translate(-canvas.width / 2, -canvas.height / 2);
@@ -45,7 +52,7 @@ function draw(canvas){
     var starCenterX;
     var starCenterY;
     var starRadius = 3;
-    const compassRadius = 4/9 * canvas.width;
+    const compassRadius = .5 * canvas.width - fontSize;
     const scale = compassRadius / 90;
     context.font = "8px Arial";
     context.fillStyle = "white";
@@ -66,13 +73,10 @@ function draw(canvas){
 
 const Skychart = props => {
     const canvas = useRef(null)
-    
     useEffect(() => {
         parseFile();
         const can= canvas.current;
-        background_image.onload = function(){
-            draw(can);
-        }
+        draw(can);
         function handleResize() {
             var size = Math.min(window.innerHeight - Math.ceil(15 * (Math.min(window.innerHeight, window.innerWidth) / 100)), window.innerWidth);
             can.height = size;
